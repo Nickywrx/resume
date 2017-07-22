@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/animate.min.css"/>
+    <link rel="stylesheet" href="css/jquery.fullPage.min.css"/>
+    <link rel="stylesheet" href="css/jianli.css"/>
+    <title>Nicky_Wu个人简历</title>
+</head>
+<body>
+<ul id="fullpageMenu">
+    <li data-menuanchor="page1" class="active">
+        <a href="#page1">关于我</a>
+    </li>
+    <li data-menuanchor="page1">
+        <a href="#page2">专业技能</a>
+    </li>
+    <li data-menuanchor="page1">
+        <a href="#page3">我的项目</a>
+    </li>
+    <li data-menuanchor="page1">
+        <a href="#page4">联系我</a>
+    </li>
+</ul>
+<div id="dowebok">
+    <div class="section about-me">
+        <div class="icon-me">
+
+        </div>
+        <h3>我输过，我败过，但我从未放弃过!</h3>
+        <p>我叫<span>吴儒兴（Nicky_Wu）</span></p>
+        <p>今年22岁 工作经验<span>一年</span></p>
+        <p>软件工程专业</p>
+        <p><span>目标</span>：要成为一名资深的前端开发工程师</p>
+        <p><span>Tel</span>:15220759245 &nbsp;&nbsp;&nbsp; <span>Email</span>:15220759245@163.com</p>
+    </div>
+    <!--技能-->
+    <div class="section skill">
+        <h1 class="">我的技能</h1>
+        <div class="container">
+            <div class="skill-left" >
+                <img src="images/skill-cp.jpg" alt=""/>
+            </div>
+            <div class="skill-right">
+                <div class="item">
+                    <h3>PC端</h3>
+                    <p>熟练掌握HTML5+CSS3+JS/jquery等技术实现页面交互效果,能够解决部分浏览器兼容性问题；</br>
+                    熟练使用artTemplate模板引擎来渲染页面,对less样式预处理语言熟悉</p>
+                </div>
+                <div class="item" >
+                    <h3>移动端</h3>
+                    <p>熟悉移动端页面开发，并且熟练使用zepto库和各种移动端插件实现功能；</br>
+                        熟悉运用bootstrap等前端框架,对响应式,伸缩布局,rem,百分比布局有熟悉的运用;
+                    </p>
+                </div>
+                <div class="item">
+                    <h3>其它</h3>
+                    <p>对浏览器同源策略,跨域原理,以及多种跨域请求数据方式有一定的掌握;</br>
+                        了解前端模块化require.js、面向对象编程、组件化以及MVVM等开发思想</br>
+                        对Vue+webpack+router 、node.js及前端工程化有一定了解实现案例；
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!--项目-->
+    <div class="section project">
+        <h1 class="">项目经验</h1>
+        <p>主要涉及企业官网、后台管理界面系列,包括PC端、移动web端等,主要技术是HTML+CSS+JavaScript</p>
+
+        <div class="pj-tab">
+            <ul class="pj-tab-title">
+                <li class="now">PC端</li>
+                <li>移动端</li>
+                <li>GitHub</li>
+            </ul>
+        
+            <ul class="pj-tab-content">
+                <li>
+                    <a href="http://www.iyoudou.cn/">用心网</a>
+                    <a href="http://www.qdfuns.com/house/43661.html">前端交流网址</a>
+                </li>
+                <li>
+                    <a href="http://www.iyoudou.cn/">爱优豆</a>
+                    <a href="https://github.com/Nickywrx/mmbuy">mmbuy</a>
+                    <a href="https://github.com/Nickywrx/VueProject">vueProject</a>
+                </li>
+                <li>
+                    <a href="https://github.com/Nickywrx/">我的github</a>
+                    <a href="https://nickywrx.github.io/wjs/wjs.html">WJS首页</a>
+                </li>
+        
+            </ul>
+        
+        </div>
+    </div>
+    <div class="section contact">
+        <form action="">
+            <fieldset>
+                <legend>联系我</legend>
+                <p>
+                    <input type="text" placeholder="姓名:"/>
+                </p>
+                <p>
+                    <input type="tel" placeholder="手机:"/>
+                </p>
+                <p>
+                    <input type="email" placeholder="邮箱:"/>
+                </p>
+
+                <p>
+                    <textarea rows="6" cols="50" placeholder="发信息给我"></textarea>
+                </p>
+
+                <p>
+                    <input type="submit" value="发送"/>
+                </p>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+
+<script>
+    $(function(){
+        $('#dowebok').fullpage({
+            sectionsColor:['red','blue','green','yellow'],
+            verticalCentered:false,
+            navigation:true,
+            navigationPosition:'right',
+            anchors:['page1','page2','page3','page4'],
+            navigationTooltips:['p1','p2','p3','p4'],
+            continuousVertical:1,
+            afterLoad:function(anchorLink, index){
+                $('.section').removeClass('current');
+                setTimeout(function(){
+                    $('.section').eq(index-1).addClass('current');
+                },200)
+            },
+
+
+
+        })
+
+        /*项目经验的tab切换*/
+        $('.pj-tab-title li').on('click',function(e){
+            e.stopPropagation();
+            $(this).addClass('now').siblings().removeClass('now');
+            $('.pj-tab-content li').eq($(this).index()).show(300).siblings().hide(300);
+        })
+
+
+    })
+
+</script>
+
+</html>

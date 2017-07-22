@@ -1,0 +1,359 @@
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body{
+  font-family: "Microsoft Yahei";
+}
+ul,ol{
+  list-style: none;
+}
+a,a:hover{
+  color: #eee;
+  text-decoration: none;
+}
+.section{
+  overflow: hidden;
+  position: relative;
+}
+#fullpageMenu{
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: rgba(0,0,0,.8);
+    li{
+      float: left;
+      width: 15%;
+      a{
+        display: block;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+      }
+    }
+
+}
+/*
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span
+*/
+
+#fp-nav,.fp-slidesNav{
+  ul{
+    li{
+      a{
+        span{
+          background-color: #fff;
+        }
+        &.active{
+          span{
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*第一页 关于我*/
+.about-me{
+  text-align: center;
+  color: #fff;
+  background: url("../images/about-bg.jpg") repeat-x;
+  /*动画*/
+  &.current{
+    h3{
+      transition: opacity 0.5s linear;
+      opacity: 1;
+    }
+    p{
+      transition: opacity 0.5s 0.5s linear;
+      opacity: 1;
+    }
+    p:nth-of-type(2){
+      transition-delay: 1s;
+    }
+    p:nth-of-type(3){
+      transition-delay: 1.5s;
+    }
+    p:nth-of-type(4){
+      transition-delay: 2s;
+    }
+    p:nth-of-type(5){
+      transition-delay: 2.5s;
+    }
+  }
+  .icon-me{
+    width: 200px;
+    height: 200px;
+    margin: 80px auto 20px;
+    border-radius: 50%;
+    position: relative;
+    //transform-style: preserve-3d;
+    &::before,
+    &::after{
+      content: '';
+      color: #000;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 200px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 0 2px 3px #fff;
+      border-radius: 50%;
+      background-color: #fff;
+      backface-visibility:hidden;
+      transform: rotateY(180deg);
+      transition: transform 1s;
+    }
+    &::before{
+      content: '相信我就是你们寻找的人';
+    }
+    &::after{
+      background: url("../images/me.jpeg");
+      background-size: 100%;
+      transform: rotateY(0deg);
+    }
+    &:hover::before{
+      transform: rotateY(0deg);
+    }
+    &:hover::after{
+      transform: rotateY(180deg);
+    }
+  }
+  h3{
+    opacity: 0;
+    width: 380px;
+    margin: 0 auto 10px;
+    line-height: 40px;
+    border-bottom: 2px solid #fff;
+  }
+  P{
+    opacity: 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    span{
+      font-size: 20px;
+      color: red;
+      text-shadow: 0 0 3px #f00;
+    }
+  }
+}
+
+/*第二页 技能介绍*/
+
+  .skill{
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    background: url("../images/skill-bg.jpg") repeat-x;
+    &.current{
+        h1{
+          animation: h 0.5s linear forwards;
+        }
+      .container .skill-left img{
+        transition: opacity 1.5s 0.5s;
+        opacity: 1;
+      }
+      .container .skill-right .item:nth-child(1){
+        transition: transform 0.3s 0.5s ease-out;
+        transform: translateX(0);
+      }
+      .container .skill-right .item:nth-child(2){
+        transition: transform 0.3s 1s ease-out;
+        transform: translateX(0);
+      }
+      .container .skill-right .item:nth-child(3){
+        transition: transform 0.3s 1.5s ease-out;
+        transform: translateX(0);
+      }
+    }
+    h1{
+      text-align: center;
+      margin-bottom: 20px;
+      transform: translateY(-150px);
+    }
+    .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .skill-left{
+        width: 50%;
+        text-align: right;
+        img{
+          opacity: 0;
+        }
+      }
+      .skill-right{
+        width: 50%;
+        padding: 0 200px 0px 30px;
+        .item{
+          margin-bottom: 20px;
+          transform: translateX(800px);
+          h3{
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+    }
+  }
+
+
+  /*第三页 项目经验*/
+
+  .project{
+  padding: 100px;
+    background: url("../images/project-bg.jpg") repeat-x;
+    text-align: center;
+    /*当有current的时候*/
+  &.current{
+    h1{
+      animation: h 0.5s linear forwards;
+    }
+    p{
+      transition: transform 0.3s 0.5s ease;
+      transform: translateX(0px);
+    }
+    .pj-tab{
+      transition: all 1s 1s ease;
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+    h1{
+      margin-bottom: 50px;
+      transform: translateY(-150px);
+    }
+    p{
+      margin-bottom: 20px;
+      transform: translateX(-1200px);
+    }
+    .pj-tab{
+      transform: translateY(300px);
+      opacity: 0;
+    .pj-tab-title{
+      overflow: hidden;
+      padding-left: 480px;
+      margin-bottom: 50px;
+      li{
+        float: left;
+        margin-right: 20px;
+        padding: 3px 7px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .now{
+        background-color: #F4CE3F;
+      }
+    }
+
+    .pj-tab-content{
+      height: 270px;
+      overflow: hidden;
+      li{
+        height: 280px;
+        margin-bottom: 5px;
+        a{
+          float: left;
+          width: 25%;
+          height: 280px;
+          border: 1px solid #000;
+          background-color: #000;
+          img{
+            width: 90%;
+            box-shadow: 0 0 10px 5px #fff;
+          }
+        }
+      }
+    }
+    }
+  }
+
+  /*第四页 联系我*/
+  .contact{
+    background: url("../images/timg.jpg");
+    padding: 80px 150px;
+    &.current{
+      fieldset{
+        transition: opacity 1s ease-in;
+        opacity: 1;
+      }
+      input{
+        transition: all 0.5s 1s ease-in;
+        width: 50%;
+        opacity: 1;
+      }
+    input[type='tel']{
+        transition-delay:1.5s ;
+    }
+      input[type='email']{
+        transition-delay:2s ;
+      }
+      textarea{
+        transition: all 1s 3s ease-in;
+        height: 100px;
+        opacity: 1;
+      }
+      input[type='submit']{
+        transition-delay:4s ;
+      }
+    }
+    fieldset{
+      padding: 20px 150px;
+      text-align: center;
+      opacity: 0;
+      legend{
+        font-size: 30px;
+        color: #fff;
+        text-shadow: 0 0 5px #fff;
+      }
+    }
+    input{
+      width: 0;
+      opacity: 0;
+      height: 30px;
+      margin: 30px 0;
+      background-color: transparent;
+      color: #fff;
+      padding-left: 15px;
+    }
+    textarea{
+      background-color: transparent;
+      height: 0;
+      opacity: 0;
+      color: #fff;
+    }
+  }
+
+/*h1标签的运动*/
+@keyframes h {
+  0%{
+    transform: translateY(-150px);
+  }
+  60%{
+    transform: translateY(10px);
+  }
+  80%{
+    transform: translateY(-10px);
+  }
+  90%{
+    transform: translateY(5px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+
+
+
